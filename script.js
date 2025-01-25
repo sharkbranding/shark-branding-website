@@ -1,48 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+  const sluzbaEl = document.getElementById("sluzba");
+  const pocetEl = document.getElementById("pocet");
+  const farbaEl = document.getElementById("farba");
+  const cenaEl = document.getElementById("cena");
+
+  // Cenník: pre každú službu dve varianty (jednofarebná, plnofarebná)
+  const ceny = {
+    tricko: { jednofarebna: 10, plnofarebna: 12 },
+    mikina: { jednofarebna: 25, plnofarebna: 30 },
+    hrncek: { jednofarebna: 6, plnofarebna: 8 },
+    banner: { jednofarebna: 30, plnofarebna: 40 },
+    vizitky: { jednofarebna: 35, plnofarebna: 50 },
+  };
+
   function vypocitajCenu() {
-    let sluzba = document.getElementById("sluzba").value;
-    let pocet = parseInt(document.getElementById("pocet").value);
-    let farba = document.getElementById("farba").value;
+    const sluzba = sluzbaEl.value;
+    const pocet = parseInt(pocetEl.value) || 1; // ak by niekto vymazal číslo
+    const farba = farbaEl.value;
 
-    let ceny = {
-      tricko: {
-        jednofarebna: 10,
-        plnofarebna: 12
-      },
-      mikina: {
-        jednofarebna: 25,
-        plnofarebna: 30
-      },
-      hrncek: {
-        jednofarebna: 6,
-        plnofarebna: 8
-      },
-      banner: {
-        jednofarebna: 30,
-        plnofarebna: 40
-      },
-      vizitky: {
-        jednofarebna: 35,
-        plnofarebna: 50
-      }
-    };
-
-    let cena = ceny[sluzba][farba];
-    let celkovaCena = cena * pocet;
+    let cenaZaJednotku = ceny[sluzba][farba];
+    let celkovaCena = cenaZaJednotku * pocet;
 
     // Zľava 10% pri odbere viac ako 50 kusov
     if (pocet > 50) {
       celkovaCena *= 0.9;
     }
 
-    document.getElementById("cena").textContent = celkovaCena.toFixed(2);
+    // Zobraziť zaokrúhlenú hodnotu
+    cenaEl.textContent = celkovaCena.toFixed(2);
   }
 
-  // Spustenie výpočtu pri zmene alebo vstupe do polí
-  document.getElementById("sluzba").addEventListener("change", vypocitajCenu);
-  document.getElementById("pocet").addEventListener("input", vypocitajCenu);
-  document.getElementById("farba").addEventListener("change", vypocitajCenu);
+  // Pripojíme eventy
+  sluzbaEl.addEventListener("change", vypocitajCenu);
+  pocetEl.addEventListener("input", vypocitajCenu);
+  farbaEl.addEventListener("change", vypocitajCenu);
 
-  // Inicializácia výpočtu pri načítaní stránky
+  // Inicializujeme hneď pri načítaní
   vypocitajCenu();
 });

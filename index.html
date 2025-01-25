@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shark Branding</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts pre pútavejšie písmo -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
+  <!-- Hlavný hero sekcia s veľkým bannerom -->
+  <header class="hero">
+    <div class="hero-content">
       <h1>Shark Branding</h1>
       <p>Budujeme značky, tvoríme vizuály, organizujeme eventy.</p>
+      <a href="#services" class="btn-cta">Zisti viac</a>
     </div>
   </header>
 
-  <section class="services">
-    <div class="container">
-      <h2>Naše služby</h2>
-      <div class="service-list">
-        <div class="service">Grafický dizajn</div>
-        <div class="service">Tlač & Merch</div>
-        <div class="service">Event Marketing</div>
+  <!-- Služby -->
+  <section class="services" id="services">
+    <h2>Naše služby</h2>
+    <div class="service-cards">
+      <div class="service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1164/1164954.png" alt="Dizajn ikona" />
+        <h3>Grafický dizajn</h3>
+        <p>Tvorba log, brand identity, letákov či iných grafických výstupov.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/6358/6358496.png" alt="Merch ikona" />
+        <h3>Tlač & Merch</h3>
+        <p>Kvalitný merch na mieru – od tričiek a mikín až po hrnčeky.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/6096/6096938.png" alt="Event ikona" />
+        <h3>Event Marketing</h3>
+        <p>Pomôžeme so správou, prípravou a propagáciou vašich podujatí.</p>
       </div>
     </div>
   </section>
 
+  <!-- Kalkulačka cien -->
   <section class="calculator">
-    <div class="container">
-      <h2>Cenová kalkulačka</h2>
+    <h2>Cenová kalkulačka</h2>
+    <div class="calc-container">
       <label for="sluzba">Vyber službu:</label>
       <select id="sluzba">
         <option value="tricko">Tričko s potlačou</option>
@@ -36,23 +52,29 @@
         <option value="banner">Reklamný banner</option>
         <option value="vizitky">Vizitky (250 ks)</option>
       </select>
+
       <label for="pocet">Počet kusov:</label>
-      <input type="number" id="pocet" min="1" value="10">
+      <input type="number" id="pocet" min="1" value="10" />
+
       <label for="farba">Farba tlače:</label>
       <select id="farba">
         <option value="jednofarebna">Jednofarebná</option>
         <option value="plnofarebna">Plnofarebná</option>
       </select>
-      <div class="result">Celkovo: <span id="cena">0</span> EUR</div>
+
+      <div class="result">
+        <span>Celkovo: </span>
+        <span id="cena">0</span> EUR
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>© 2025 Shark Branding. Všetky práva vyhradené.</p>
-    </div>
+    <p>© 2025 Shark Branding. Všetky práva vyhradené.</p>
   </footer>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
