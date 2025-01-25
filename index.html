@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark Branding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Shark Branding</h1>
+      <p>Budujeme značky, tvoríme vizuály, organizujeme eventy.</p>
+    </div>
+  </header>
+
+  <section class="services">
+    <div class="container">
+      <h2>Naše služby</h2>
+      <div class="service-list">
+        <div class="service">Grafický dizajn</div>
+        <div class="service">Tlač & Merch</div>
+        <div class="service">Event Marketing</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <div class="container">
+      <h2>Cenová kalkulačka</h2>
+      <label for="sluzba">Vyber službu:</label>
+      <select id="sluzba">
+        <option value="tricko">Tričko s potlačou</option>
+        <option value="mikina">Mikina s potlačou</option>
+        <option value="hrncek">Hrnček s potlačou</option>
+        <option value="banner">Reklamný banner</option>
+        <option value="vizitky">Vizitky (250 ks)</option>
+      </select>
+      <label for="pocet">Počet kusov:</label>
+      <input type="number" id="pocet" min="1" value="10">
+      <label for="farba">Farba tlače:</label>
+      <select id="farba">
+        <option value="jednofarebna">Jednofarebná</option>
+        <option value="plnofarebna">Plnofarebná</option>
+      </select>
+      <div class="result">Celkovo: <span id="cena">0</span> EUR</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Shark Branding. Všetky práva vyhradené.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
